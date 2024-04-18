@@ -1,0 +1,40 @@
+---
+import "../styles/global.css";
+
+import Header from "../components/Header/Header.astro";
+import Footer from "../components/Footer/Footer.astro";
+import Container from "../components/Container/Container.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <!-- Tailwind Font -->
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <!-- Pixelify Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Soe Min Thant</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <Header />
+    <!-- Main Content -->
+    <div id="main">
+      <Container>
+        <!-- Content Start -->
+        <slot />
+        <!-- Content End -->
+      </Container>
+    </div>
+    <!-- Footer -->
+    <Footer />
+  </body>
+</html>

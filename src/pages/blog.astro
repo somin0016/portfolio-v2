@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { API_BASE_URL } from "../constants";
+
+const response = await fetch(API_BASE_URL, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    query: `
+				query IndexPage {
+					posts(where: {orderby: {field: DATE, order: DESC}}) {
+						nodes {
+							slug
+							date
+							title
+							excerpt
+							featuredImage {
+								node {
+									sourceUrl
+								}
+							}
+						}
+					}
+				}
+      `,
+  }),
+});
+
+// destructure data from our JSON
+const { data } = await response.json();
+
+//  assign the array of nodes to "posts" variable for usability
+const posts = data.posts.nodes;
+
+console.log(posts);
+---
+
+<Layout>
+  <h1 class="text-4xl font-bold pt-8 mb-4">Blog</h1>
+  <p>I do some blogging whenever I feel bored or find interesting topics.</p>
+
+  <div>
+    <ul>
+      {
+        posts.map((post: any) => (
+          <li>
+            <a href=`https://blog.smthant.com/${post.slug}` target="_blank">{post.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Layout>

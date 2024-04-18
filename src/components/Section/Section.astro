@@ -1,0 +1,23 @@
+---
+interface Props {
+  title?: string;
+  circle?: string;
+}
+
+const { title, circle } = Astro.props;
+---
+
+<section class=`my-4 mb-24`>
+  {
+    title && (
+      <h2 class="text-lg uppercase font-semibold tracking-tight flex items-center mb-8">
+        <div
+          class={`mr-2 w-2 h-2 ${!circle && "bg-smPrimary"} rounded-full inline-block`}
+          style={circle && { backgroundColor: circle }}
+        />
+        {title}
+      </h2>
+    )
+  }
+  <slot />
+</section>
