@@ -1,0 +1,24 @@
+---
+interface Props {
+	date: Date;
+}
+
+const { date } = Astro.props;
+
+// Extract month and day from the date
+const month = ('0' + (date.getMonth() + 1)).slice(-2); // Adding 1 to month because months are zero-indexed
+const day = ('0' + date.getDate()).slice(-2);
+
+// Create a custom format (MM-DD) excluding the year
+const customFormat = `${month}-${day}`;
+---
+
+<time datetime={date.toISOString()}>
+	{
+		date.toLocaleDateString('en-us', {
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric',
+		})
+	}
+</time>
