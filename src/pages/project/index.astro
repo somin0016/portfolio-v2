@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+import { convertHexToRGBA } from "../../util";
+
+const projects = await getCollection("project");
+---
+
+<Layout>
+  <h1 class="text-4xl font-bold pt-8 mb-4">Projects</h1>
+
+  <p>This is my projects.</p>
+
+  <div class="grid sm:grid-cols-2 sm:gap-4 mt-16">
+    {
+      projects.map((project: any) => (
+        <a
+          href={`/project/${project.slug}/`}
+          class:list={[
+            "block w-full h-36 mb-4 p-4 sm:mb-0 overflow-hidden rounded-2xl bg-smWhite border border-smBorder dark:bg-zinc-800 dark:border-slate-900/5",
+            `&:hover {box-shadow: ${convertHexToRGBA(project.data.background, 0.35)} 0px 4px 24px;}`,
+          ]}
+        >
+          <h3 class="text-lg font-semibold">{project.data.title}</h3>
+          <p class="text-sm">{project.data.description}</p>
+        </a>
+      ))
+    }
+  </div>
+</Layout>

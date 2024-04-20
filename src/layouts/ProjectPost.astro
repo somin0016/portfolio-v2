@@ -1,0 +1,15 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Layout from "./Layout.astro"
+
+type Props = CollectionEntry<'project'>['data'];
+
+const { title, description, year, heroImage } = Astro.props;
+---
+
+<Layout>
+  <h1 class="text-4xl font-bold pt-8 mb-4">{title}</h1>
+  <div class="prose dark:prose-invert">
+    <slot />
+  </div>
+</Layout>

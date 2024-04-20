@@ -1,10 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section/Section.astro";
+import Timeline from "../components/Timeline/Timeline.astro";
 ---
 
 <Layout>
-  <!-- INTRO -->
+  <!-- INTRO STARTS -->
   <Section>
     <div class="grid sm:grid-cols-3 gap-4 pt-8 items-center">
       <div class="sm:col-span-2 flex flex-col order-2 sm:order-1">
@@ -63,8 +64,9 @@ import Section from "../components/Section/Section.astro";
 			</div>
     </div>
   </Section>
+	<!-- INTRO ENDS -->
 
-  <!-- ABOUT -->
+  <!-- ABOUT STARTS -->
   <Section title="About Me" circle="#0D99FF">
     <div class="grid grid-cols-3 gap-2">
       <div class="col-span-3">
@@ -121,6 +123,14 @@ import Section from "../components/Section/Section.astro";
       </div>
     </div>
   </Section>
+	<!-- ABOUT ENDS -->
+
+	<!-- TIMELINE STARTS -->
+	<Section title="My Career Story" circle="#F24822">
+		<Timeline />
+	</Section>
+	<!-- TIMELINE ENDS -->
+
 </Layout>
 <script>
   const playPronunciation = () => {
