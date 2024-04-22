@@ -9,7 +9,4 @@ export default defineConfig({
   integrations: [tailwind(), react()],
   output: "server",
   adapter: vercel(),
-  env: {
-    LASTFM_API_KEY: process.env.LASTFM_API_KEY,
-  },
 });
