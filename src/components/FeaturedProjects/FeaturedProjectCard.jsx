@@ -19,8 +19,8 @@ const FeaturedProjectCard = ({ project }) => {
         cardHoverStyle
       )}
     >
-      <h3 class="text-lg font-semibold">{project.name}</h3>
-      <p class="text-sm">{project.description}</p>
+      <h3 className="text-lg font-semibold">{project.name}</h3>
+      <p className="text-sm">{project.description}</p>
       {project.links && (
         <div className="mt-4 w-full text-xs flex gap-2">
           {project.links.map((link, index) => (
