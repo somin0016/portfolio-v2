@@ -15,7 +15,7 @@ const FeaturedProjectCard = ({ project }) => {
     <a
       href={`/project/${project.slug}/`}
       className={cx(
-        `block w-full min-h-24 p-4 sm:mb-0 overflow-hidden rounded-2xl bg-smWhite border border-smBorder dark:bg-zinc-800 dark:border-slate-900/5`,
+        `block w-full min-h-24 p-4 mb-4 sm:mb-0 overflow-hidden rounded-2xl bg-smWhite border border-smBorder dark:bg-zinc-800 dark:border-slate-900/5`,
         cardHoverStyle
       )}
     >

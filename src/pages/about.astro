@@ -1,15 +1,10 @@
 ---
 /* component imports */
+component:true
+
 import Layout from "../layouts/Layout.astro";
-
-const identity = {
-  firstName: "SoeMin",
-  country: "Singapore",
-  occupation: "Software Engineer",
-  hobbies: ["photography", "birdwatching", "baseball"],
-};
-
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+import AlbumList from "../components/Song/AlbumList";
+import AboutSection from "../components/Elements/Section/AboutSection.astro";
 
 const links = [
   {
@@ -24,28 +19,40 @@ const links = [
     links: [
       { name: "tsoominn@gmail.com", url: "mailto:tsoominn@gmail.com" },
       { name: "WhatsApp", url: "https://wa.me/6584511155" },
+      { name: "Discord", url: "https://discord.com/users/395270263056629761" },
     ],
   },
   {
     category: "Socials",
-    links: [
-      { name: "Instagram", url: "https://www.facebook.com/soeminnthant" },
-      { name: "Discord", url: "hhttps://discord.com/users/395270263056629761" },
-    ],
+    links: [{ name: "Instagram", url: "https://www.instagram.com/soeemt/" }],
   },
   {
     category: "Blog",
     links: [{ name: "blog by soemin", url: "https://www.blog.smthant.com" }],
   },
 ];
+
+const games = [
+  {
+    name: "Final Fantasy XIV",
+    description: "Fav MMORPG! Been playing since 2017.",
+    images: ["ffxiv_01.jpg", "ffxiv_02.jpg", "ffxiv_03.jpg", "ffxiv_04.jpg"],
+    link: "https://eu.finalfantasyxiv.com/lodestone/character/21360010/",
+  },
+];
 ---
 
 <Layout>
   <div>
-    <h1 class="text-4xl font-bold pt-8 mb-4">About Me</h1>
-
+    <h1 class="text-4xl font-bold pt-8 mb-8">About Me</h1>
     <div class="prose dark:prose-invert">
-      <p><a href="https://finalfantasy.fandom.com/wiki/Lali-ho" target="_blank" class="hover:italic hover:text-purple-400">Lali-ho!</a></p>
+      <p>
+        <a
+          href="https://finalfantasy.fandom.com/wiki/Lali-ho"
+          target="_blank"
+          class="hover:italic hover:text-purple-400">Lali-ho!</a
+        >
+      </p>
       <p>
         I'm Soe Min Thant, a Software Engineer originally from <a
           href="https://en.wikipedia.org/wiki/Myanmar"
@@ -66,38 +73,18 @@ const links = [
 
       <p>
         Here, you'll find what I love, my favorite games, links to my social
-        profiles, and if you're a recruiter, my <a href="/SoeMinThant.pdf" download class="hover:text-purple-400">resume</a>.
+        profiles, and if you're a recruiter, my <a
+          href="/SoeMinThant.pdf"
+          download
+          class="hover:text-purple-400">resume</a
+        >.
       </p>
 
-      <p>Let's explore together!</p>
+      <p>Hope you like it here! o/</p>
     </div>
 
-    <!-- <p>Here are a few facts about me:</p>
-    <ul>
-      <li>My name is {identity.firstName}.</li>
-      <li>
-        I live in {identity.country} and I work as a {identity.occupation}.
-      </li>
-      {
-        identity.hobbies.length >= 2 && (
-          <li>
-            Two of my hobbies are: {identity.hobbies[0]} and{" "}
-            {identity.hobbies[1]}
-          </li>
-        )
-      }
-    </ul>
-    <p>My skills are:</p>
-    <ul>
-      {skills.map((skill) => <li>{skill}</li>)}
-    </ul> -->
-
-    <div class="mb-8">
-      <h2
-        class="text-3xl font-bold mt-10 pb-2 border-b border-gray-200 dark:border-gray-600"
-      >
-        Links
-      </h2>
+    <!-- Links -->
+    <AboutSection title="Links">
       <div class="pt-4">
         <ul class="space-y-4 list-inside">
           {
@@ -122,16 +109,74 @@ const links = [
           }
         </ul>
       </div>
-    </div>
-    <h2
-      class="text-3xl font-bold mt-10 pb-2 border-b border-gray-200 dark:border-gray-600"
-    >
-      Files
-    </h2>
-    <h2
-      class="text-3xl font-bold mt-10 pb-2 border-b border-gray-200 dark:border-gray-600"
-    >
-      Games
-    </h2>
+    </AboutSection>
+
+    <!-- Games -->
+    <AboutSection title="Games I Play">
+      <div class="pt-4">
+        <div class="grid sm:grid-cols-2 gap-4">
+          {
+            games.map((game, index) => (
+              <div class="col-span-1">
+                <a
+                  href={game.link}
+                  target="_blank"
+                  class="block w-full rounded-lg hover:underline"
+                >
+                  {game.images.length >= 2 ? (
+                    <div class="swiper">
+                      <div class="swiper-wrapper">
+                        {game.images.map((image, index) => (
+                          <div class="swiper-slide">
+                            <img
+                              src={`/images/games/${image}`}
+                              alt={game.name}
+                              class="rounded-md"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <img
+                      src={`/images/games/${game.images[0]}`}
+                      alt={game.name}
+                      class="rounded-md"
+                    />
+                  )}
+                  <div class="py-2">
+                    <h3 class="text-lg font-semibold">{game.name}</h3>
+                    <span class="text-sm inline-block">{game.description}</span>
+                  </div>
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </AboutSection>
+
+    <!-- Songs -->
+    <AboutSection title="Music I'm Listening">
+      <div class="pt-4">
+        <AlbumList client:load />
+      </div>
+    </AboutSection>
   </div>
 </Layout>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+<script
+  is:inline
+  src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script is:inline>
+  new Swiper(".swiper", {
+    autoplay: {
+      delay: 5000,
+    },
+  });
+</script>
+../components/Song/AlbumList

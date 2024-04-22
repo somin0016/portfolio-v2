@@ -21,7 +21,7 @@ const skills = [
   },
   {
     category: "Tools",
-    skills: ["Git", "AWS RDS", "Docker", "Jenkins & Argo", "Figma"],
+    skills: ["Git", "AWS RDS", "Docker", "Jenkins", "ArgoCD", "Figma"],
   },
 ];
 
@@ -172,10 +172,10 @@ const featuredProjects = [
       {
         skills.map(({ category, skills }, index, array) => (
           <div
-            class={`w-full min-[385px]:grid min-[385px]:grid-cols-4 gap-4 py-6 ${index === array.length - 1 ? "" : "border-b border-gray-200 dark:border-gray-600"}`}
+            class={`w-full min-[420px]:grid min-[420px]:grid-cols-4 gap-4 py-6 ${index === array.length - 1 ? "" : "border-b border-gray-200 dark:border-gray-600"}`}
           >
             <div class="col-span-1">
-              <span class="relative text-md block font-medium mb-4 min-[385px]:mb-0">
+              <span class="relative text-md block font-medium mb-4 min-[420px]:mb-0">
                 {category}
               </span>
             </div>
@@ -205,15 +205,3 @@ const featuredProjects = [
   </Section>
   <!-- PROJECTS ENDS -->
 </Layout>
-<script>
-  const playPronunciation = () => {
-    alert("js works!");
-  };
-
-  const openResume = () => {
-    alert("open resume");
-  };
-
-  const resumeButton = document.getElementById("resume-button");
-  resumeButton?.addEventListener("click", () => openResume());
-</script>
