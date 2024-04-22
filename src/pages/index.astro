@@ -32,9 +32,9 @@ const featuredProjects = [
     color: "#C23A1B",
     slug: "smthant",
     links: [
-      {name: "GitHub", url: "https://github.com/somin0016/portfolio-v2"},
-      {name: "Blog", url: "https://blog.smthant.com/making-portfolio-v02/"}
-    ]
+      { name: "GitHub", url: "https://github.com/somin0016/portfolio-v2" },
+      { name: "Blog", url: "https://blog.smthant.com/making-portfolio-v02/" },
+    ],
   },
   {
     name: "SpaceShare",
@@ -47,18 +47,14 @@ const featuredProjects = [
     description: "A DiscordJS Bot",
     color: "#0D99FF",
     slug: "maid",
-    links: [
-      {name: "GitHub", url: "https://github.com/somin0016/maid_v3"}
-    ]
+    links: [{ name: "GitHub", url: "https://github.com/somin0016/maid_v3" }],
   },
   {
     name: "Collectibles",
     description: "Social Media Web App for Collectors",
     color: "#FFCD29",
     slug: "collectibles",
-    links: [
-      {name: "GitHub", url: "https://github.com/shinymaid/AWP"}
-    ]
+    links: [{ name: "GitHub", url: "https://github.com/shinymaid/AWP" }],
   },
 ];
 ---
@@ -75,11 +71,13 @@ const featuredProjects = [
           </h1>
         </div>
         <p class="text-base font-normal text-dark">
-          A Software Engineer who focuses on building websites.
-          And yes, you might catch me listening to{" "}
+          A Software Engineer who focuses on building websites. And yes, you
+          might catch me listening to{" "}
           <span class="italic underline decoration-dotted"> K-pop </span>{" "}
           while coding.{" "}
-          <span class="text-gray-600 dark:text-zinc-400">(I think it helps..)</span>
+          <span class="text-gray-600 dark:text-zinc-400"
+            >(I think it helps..)</span
+          >
         </p>
         <div class="mt-4">
           <p>
@@ -94,7 +92,11 @@ const featuredProjects = [
         </div>
       </div>
       <div class="sm:col-span-1 order-1 sm:order-2">
-        <img class="w-40 sm:w-52 rounded-md" src="./smt_pfp.jpg" alt="Soe Min Thant" />
+        <img
+          class="w-40 sm:w-52 rounded-md"
+          src="./smt_pfp.jpg"
+          alt="Soe Min Thant"
+        />
       </div>
     </div>
   </Section>
@@ -105,14 +107,17 @@ const featuredProjects = [
     <div class="grid grid-cols-3 gap-2">
       <div class="col-span-3">
         <p class="mb-3">
-          I am a 23-year-old Software Engineer with a passion for crafting web applications. 
-          My journey into the realm of coding began in 2016, marking the start of my exploration into various programming languages. 
-          Currently pursuing my studies in Software Engineering in Singapore.
+          I am a 23-year-old Software Engineer with a passion for crafting web
+          applications. My journey into the realm of coding began in 2016,
+          marking the start of my exploration into various programming
+          languages. Currently pursuing my studies in Software Engineering in
+          Singapore.
         </p>
         <p class="mb-3">
-          One of my biggest interests is examining how different projects are built, 
-          especially their architecture and code structures. 
-          This helps me constantly learn and grasp how complex applications are put together.
+          One of my biggest interests is examining how different projects are
+          built, especially their architecture and code structures. This helps
+          me constantly learn and grasp how complex applications are put
+          together.
         </p>
         {/* <ResumeButton /> */}
         <div class="flex items-center">
@@ -160,6 +165,18 @@ const featuredProjects = [
   </Section>
   <!-- ABOUT ENDS -->
 
+  <!-- PROJECTS STARTS -->
+  <Section title="Featured Projects" circle="#FFCD29">
+    <div class="grid sm:grid-cols-2 gap-2 sm:gap-4">
+      {
+        featuredProjects.map((project, index) => (
+          <FeaturedProjectCard project={project} client:load />
+        ))
+      }
+    </div>
+  </Section>
+  <!-- PROJECTS ENDS -->
+
   <!-- TIMELINE STARTS -->
   <Section title="My Career Story" circle="#F24822">
     <Timeline />
@@ -192,16 +209,4 @@ const featuredProjects = [
     </div>
   </Section>
   <!-- SKILLS ENDS -->
-
-  <!-- PROJECTS STARTS -->
-  <Section title="Featured Projects" circle="#FFCD29">
-    <div class="grid sm:grid-cols-2 gap-2 sm:gap-4">
-      {
-        featuredProjects.map((project, index) => (
-          <FeaturedProjectCard project={project} client:load />
-        ))
-      }
-    </div>
-  </Section>
-  <!-- PROJECTS ENDS -->
 </Layout>
