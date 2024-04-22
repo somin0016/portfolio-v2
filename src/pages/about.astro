@@ -1,4 +1,5 @@
 ---
+/* component imports */
 import Layout from "../layouts/Layout.astro";
 
 const identity = {
@@ -9,14 +10,67 @@ const identity = {
 };
 
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+const links = [
+  {
+    category: "Work",
+    links: [
+      { name: "GitHub", url: "https://github.com/somin0016" },
+      { name: "LinkedIn", url: "https://www.linkedin.com/in/soeminthant" },
+    ],
+  },
+  {
+    category: "Contact",
+    links: [
+      { name: "tsoominn@gmail.com", url: "mailto:tsoominn@gmail.com" },
+      { name: "WhatsApp", url: "https://wa.me/6584511155" },
+    ],
+  },
+  {
+    category: "Socials",
+    links: [
+      { name: "Instagram", url: "https://www.facebook.com/soeminnthant" },
+      { name: "Discord", url: "hhttps://discord.com/users/395270263056629761" },
+    ],
+  },
+  {
+    category: "Blog",
+    links: [{ name: "blog by soemin", url: "https://www.blog.smthant.com" }],
+  },
+];
 ---
 
 <Layout>
   <div>
     <h1 class="text-4xl font-bold pt-8 mb-4">About Me</h1>
 
-    <p>This will be about me!</p>
-    <p>Hello, I am Soe Min Thant, from <a href="https://en.wikipedia.org/wiki/Myanmar" class="underline">Myanmar</a></p>
+    <div class="prose dark:prose-invert">
+      <p><a href="https://finalfantasy.fandom.com/wiki/Lali-ho" target="_blank" class="hover:italic hover:text-purple-400">Lali-ho!</a></p>
+      <p>
+        I'm Soe Min Thant, a Software Engineer originally from <a
+          href="https://en.wikipedia.org/wiki/Myanmar"
+          class="hover:text-purple-400">Myanmar</a
+        >. I was born in 2000 and started learning to code in 2017. My journey
+        into the tech world led me to my first job as a Junior Web Developer in
+        2021. Now, I'm gaining experience as a Software Engineering Intern in
+        Singapore.
+      </p>
+
+      <p>
+        Welcome to version 2.0 of my portfolio site! While the look hasn't
+        changed much, I've added extra pages and tried out new tools for
+        building it. Instead of just a portfolio, I wanted this site to feel
+        more like a personal space where I can share things I enjoy, show off my
+        work, and more.
+      </p>
+
+      <p>
+        Here, you'll find what I love, my favorite games, links to my social
+        profiles, and if you're a recruiter, my <a href="/SoeMinThant.pdf" download class="hover:text-purple-400">resume</a>.
+      </p>
+
+      <p>Let's explore together!</p>
+    </div>
 
     <!-- <p>Here are a few facts about me:</p>
     <ul>
@@ -38,13 +92,45 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
       {skills.map((skill) => <li>{skill}</li>)}
     </ul> -->
 
-    <h2 class="text-3xl font-bold mt-10 pb-2 border-b border-gray-200 dark:border-gray-600">
-      My Setup
-    </h2>
-    <h2 class="text-3xl font-bold mt-10 pb-2 border-b border-gray-200 dark:border-gray-600">
+    <div class="mb-8">
+      <h2
+        class="text-3xl font-bold mt-10 pb-2 border-b border-gray-200 dark:border-gray-600"
+      >
+        Links
+      </h2>
+      <div class="pt-4">
+        <ul class="space-y-4 list-inside">
+          {
+            links.map(({ category, links }) => (
+              <li>
+                <h3 class="text-xl font-medium">{category}</h3>
+                <ol class="ps-5 my-1 space-y-1 list-disc list-inside">
+                  {links.map(({ name, url }) => (
+                    <li>
+                      <a
+                        href={url}
+                        target="_blank"
+                        class="underline text-smBlue hover:text-smBlue-strong"
+                      >
+                        {name}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+    <h2
+      class="text-3xl font-bold mt-10 pb-2 border-b border-gray-200 dark:border-gray-600"
+    >
       Files
     </h2>
-    <h2 class="text-3xl font-bold mt-10 pb-2 border-b border-gray-200 dark:border-gray-600">
+    <h2
+      class="text-3xl font-bold mt-10 pb-2 border-b border-gray-200 dark:border-gray-600"
+    >
       Games
     </h2>
   </div>

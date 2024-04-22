@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 export const convertHexToRGBA = (hexCode, opacity = 1) => {
   let hex = hexCode.replace('#', '');
 
@@ -16,3 +18,26 @@ export const convertHexToRGBA = (hexCode, opacity = 1) => {
 
   return `rgba(${r},${g},${b},${opacity})`;
 };
+
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
+
+export const useWindowDimensions = () => {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
+}

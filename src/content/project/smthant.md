@@ -1,6 +1,6 @@
 ---
 title: 'smthant.com'
 description: 'Personal Website'
-year: 2014
+year: 2024
 background: '14AE5C'
 ---

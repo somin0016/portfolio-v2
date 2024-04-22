@@ -1,10 +1,15 @@
 ---
+/* util imports */
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-
 import { convertHexToRGBA } from "../../util";
 
-const projects = await getCollection("project");
+/* component imports */
+import Layout from "../../layouts/Layout.astro";
+
+/* init projects */
+const projects = (await getCollection("project")).sort(
+  (a, b) => b.data.year.valueOf() - a.data.year.valueOf()
+);
 ---
 
 <Layout>

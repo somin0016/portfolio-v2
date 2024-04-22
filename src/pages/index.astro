@@ -1,7 +1,66 @@
 ---
+/* component imports */
 import Layout from "../layouts/Layout.astro";
-import Section from "../components/Section/Section.astro";
 import Timeline from "../components/Timeline/Timeline.astro";
+import Section from "../components/Elements/Section/Section.astro";
+import FeaturedProjectCard from "../components/FeaturedProjects/FeaturedProjectCard";
+
+/* init */
+const skills = [
+  {
+    category: "Languages",
+    skills: ["C#", "Java", "JavaScript", "TypeScript", "Ruby", "HTML & CSS"],
+  },
+  {
+    category: "Frameworks",
+    skills: ["ASP.NET", "Spring", "React", "NestJS", "NodeJS"],
+  },
+  {
+    category: "Databases",
+    skills: ["MSSQL", "Postgres", "Mongo", "Redis"],
+  },
+  {
+    category: "Tools",
+    skills: ["Git", "AWS RDS", "Docker", "Jenkins & Argo", "Figma"],
+  },
+];
+
+const featuredProjects = [
+  {
+    name: "smthant.com",
+    description: "This website ~",
+    color: "#C23A1B",
+    slug: "smthant",
+    links: [
+      {name: "GitHub", url: "https://github.com/somin0016/portfolio-v2"},
+      {name: "Blog", url: "https://blog.smthant.com/making-portfolio-v02/"}
+    ]
+  },
+  {
+    name: "SpaceShare",
+    description: "Room and Roommate Finding Web App",
+    color: "#14AE5C",
+    slug: "spaceshare",
+  },
+  {
+    name: "Maid",
+    description: "A DiscordJS Bot",
+    color: "#0D99FF",
+    slug: "maid",
+    links: [
+      {name: "GitHub", url: "https://github.com/somin0016/maid_v3"}
+    ]
+  },
+  {
+    name: "Collectibles",
+    description: "Social Media Web App for Collectors",
+    color: "#FFCD29",
+    slug: "collectibles",
+    links: [
+      {name: "GitHub", url: "https://github.com/shinymaid/AWP"}
+    ]
+  },
+];
 ---
 
 <Layout>
@@ -9,47 +68,22 @@ import Timeline from "../components/Timeline/Timeline.astro";
   <Section>
     <div class="grid sm:grid-cols-3 gap-4 pt-8 items-center">
       <div class="sm:col-span-2 flex flex-col order-2 sm:order-1">
-        <div class="mb-10 text-dark">
+        <div class="mb-8 text-dark">
           <p class="">Hello,</p>
           <h1 class="text-3xl font-bold tracking-tight">
             I'm Soe Min Thant! 👋
-            <!-- <div
-							class="mx-2 border-b-2 border-smPrimary-light hs-tooltip inline-block [--trigger:hover] [--placement:bottom] hover:cursor-pointer hover:border-smSecondary transition-colors"
-						>
-							<div class="hs-tooltip-toggle">
-								Soe Min
-								<div
-									class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-3 px-4 bg-white border rounded-lg shadow-lg after:absolute after:-top-4 after:w-full after:h-4"
-									role="tooltip"
-								>
-									<div class="flex gap-2 font-thin text-xs text-gray-800">
-										My friends call me Soemin
-										<button
-											class={`text-blue-500 flex items-center justify-center gap-1 ${
-												!isPlaying ? "underline decoration-dotted" : ""
-											}`}
-											onClick={playPronunciation}
-										>
-											/soʊ mɪn/
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						Thant! 👋 -->
           </h1>
         </div>
         <p class="text-base font-normal text-dark">
-          Software Engineer and I mostly develop websites. <br />
-          I am interested in software architecture, <br />
-          and listens to{" "}
+          A Software Engineer who focuses on building websites.
+          And yes, you might catch me listening to{" "}
           <span class="italic underline decoration-dotted"> K-pop </span>{" "}
           while coding.{" "}
-          <span class="text-gray-600">(I think it helps..)</span>
+          <span class="text-gray-600 dark:text-zinc-400">(I think it helps..)</span>
         </p>
         <div class="mt-4">
           <p>
-            or simply email me at
+            To reach out, simply email me at
             <a
               href={`mailto:`}
               class="sm--link relative whitespace-nowrap ml-1 text-blue-600"
@@ -59,25 +93,26 @@ import Timeline from "../components/Timeline/Timeline.astro";
           </p>
         </div>
       </div>
-			<div class="sm:col-span-1 order-1 sm:order-2">
-				<img class="w-40 sm:w-52 rounded-md" src="./smt_pfp.jpg"/>
-			</div>
+      <div class="sm:col-span-1 order-1 sm:order-2">
+        <img class="w-40 sm:w-52 rounded-md" src="./smt_pfp.jpg" />
+      </div>
     </div>
   </Section>
-	<!-- INTRO ENDS -->
+  <!-- INTRO ENDS -->
 
   <!-- ABOUT STARTS -->
   <Section title="About Me" circle="#0D99FF">
     <div class="grid grid-cols-3 gap-2">
       <div class="col-span-3">
         <p class="mb-3">
-          I'm a 23y/o SE. I started my coding journey back in 2016, where I was
-          first introduced to programming languages. I mainly develop web apps.
-          I am now studying Software Engineering in Singapore.
+          I am a 23-year-old Software Engineer with a passion for crafting web applications. 
+          My journey into the realm of coding began in 2016, marking the start of my exploration into various programming languages. 
+          Currently pursuing my studies in Software Engineering in Singapore.
         </p>
         <p class="mb-3">
-          I love browsing the code structure and architecture of the new
-          projects, I like to learn how they are built.
+          One of my biggest interests is examining how different projects are built, 
+          especially their architecture and code structures. 
+          This helps me constantly learn and grasp how complex applications are put together.
         </p>
         {/* <ResumeButton /> */}
         <div class="flex items-center">
@@ -123,14 +158,52 @@ import Timeline from "../components/Timeline/Timeline.astro";
       </div>
     </div>
   </Section>
-	<!-- ABOUT ENDS -->
+  <!-- ABOUT ENDS -->
 
-	<!-- TIMELINE STARTS -->
-	<Section title="My Career Story" circle="#F24822">
-		<Timeline />
-	</Section>
-	<!-- TIMELINE ENDS -->
+  <!-- TIMELINE STARTS -->
+  <Section title="My Career Story" circle="#F24822">
+    <Timeline />
+  </Section>
+  <!-- TIMELINE ENDS -->
 
+  <!-- SKILLS STARTS -->
+  <Section title="My Dev Toolkit" circle="#14AE5C">
+    <div class="mb-20">
+      {
+        skills.map(({ category, skills }, index, array) => (
+          <div
+            class={`w-full min-[385px]:grid min-[385px]:grid-cols-4 gap-4 py-6 ${index === array.length - 1 ? "" : "border-b border-gray-200 dark:border-gray-600"}`}
+          >
+            <div class="col-span-1">
+              <span class="relative text-md block font-medium mb-4 min-[385px]:mb-0">
+                {category}
+              </span>
+            </div>
+            <div class="col-span-3 flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-1">
+              {skills.map((skill, index) => (
+                <div class="block pb-2 text-sm font-normal leading-relaxed text-gray-600 dark:text-zinc-300">
+                  {skill}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+  <!-- SKILLS ENDS -->
+
+  <!-- PROJECTS STARTS -->
+  <Section title="Featured Projects" circle="#FFCD29">
+    <div class="grid sm:grid-cols-2 gap-2 sm:gap-4">
+      {
+        featuredProjects.map((project, index) => (
+          <FeaturedProjectCard project={project} client:load />
+        ))
+      }
+    </div>
+  </Section>
+  <!-- PROJECTS ENDS -->
 </Layout>
 <script>
   const playPronunciation = () => {
@@ -144,3 +217,4 @@ import Timeline from "../components/Timeline/Timeline.astro";
   const resumeButton = document.getElementById("resume-button");
   resumeButton?.addEventListener("click", () => openResume());
 </script>
+../components/FeaturedProjects/ProjectContainer../components/FeaturedProjects/FeaturedProjectCard

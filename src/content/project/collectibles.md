@@ -1,7 +1,7 @@
 ---
 title: 'Collectibles'
 description: 'Social Media Web App for Collectors'
-year: 2014
+year: 2020
 background: 'FFFFFF'
 heroImage: '/blog-placeholder-3.jpg'
 ---
