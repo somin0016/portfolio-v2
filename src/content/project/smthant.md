@@ -13,6 +13,8 @@ To ensure optimal performance and discoverability, I've implemented server-side 
 
 *This is the website you're looking at right now!*
 
+[Here](https://portfolio-eta-one-21.vercel.app/) is the version 01!
+
 ---
 
 ## Tech Stack
