@@ -33,6 +33,7 @@ const BlogList = () => {
         });
         const { data } = await response.json();
         setPosts(data.posts.nodes);
+        console.log(data);
         setIsLoading(false);
       } catch (error) {
         console.error('Error fetching posts:', error);
@@ -69,9 +70,8 @@ const BlogList = () => {
               >
                 {post.title}
               </a>
-              <span class="text-sm">
-                {/* <FormattedDate date={new Date(post.date)} /> */}
-                Date
+              <span className="text-sm">
+              {new Date(post.date).toLocaleString('default', { month: 'short', year: 'numeric' })}
               </span>
             </li>
           ))
