@@ -14,7 +14,7 @@ There's a high demand of rooms for rent in singapore, and foreign workers and st
 ### What I've done in this project
 - came up with the app Name and drafted out possible user-roles
 - led frontend development, designed the overall look and feel of the app, built the components together with a teammate
-- built auth flow for admin, and APIs for admin module
+- built dashboard and APIs for admin module
 
 ---
 
