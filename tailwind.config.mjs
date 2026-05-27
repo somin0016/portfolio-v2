@@ -1,15 +1,37 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
+import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-	darkMode: 'class',
+  darkMode: "class",
   theme: {
     extend: {
-			fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+      fontFamily: {
+        sans: ['"Inter var"', "Inter", ...defaultTheme.fontFamily.sans],
       },
       colors: {
+        /* semantic, theme-aware tokens (backed by CSS vars in global.css) */
+        bg: "var(--color-bg)",
+        surface: "var(--color-surface)",
+        fg: "var(--color-fg)",
+        muted: "var(--color-muted)",
+        border: "var(--color-border)",
+        accent: {
+          DEFAULT: "var(--color-accent)",
+          hover: "var(--color-accent-hover)",
+        },
+
+        /* point at the new semantic tokens so existing
+           components automatically pick up the refreshed palette */
+        smBackground: { DEFAULT: "var(--color-bg)" },
+        smWhite: { DEFAULT: "var(--color-surface)" },
+        smText: {
+          DEFAULT: "var(--color-fg)",
+          light: "var(--color-muted)",
+        },
+        smBorder: { DEFAULT: "var(--color-border)" },
+
+        /* accent / Figma-style markers, used for section circles */
         smPrimary: {
           DEFAULT: "#183367",
           strong: "#0e1f3e",
@@ -17,20 +39,6 @@ export default {
         },
         smSecondary: {
           DEFAULT: "#97b2e7",
-        },
-        smWhite: {
-          DEFAULT: "#FBFBFB",
-        },
-        smBorder: {
-          DEFAULT: "#dddee2",
-        },
-        smText: {
-          DEFAULT: "#232529",
-          light: "#5e646e",
-        },
-        smBackground: {
-          // DEFAULT: '#efeff1',
-          DEFAULT: "#F5F5F5",
         },
         smBlue: {
           DEFAULT: "#0D99FF",
@@ -51,7 +59,5 @@ export default {
       },
     },
   },
-  plugins: [
-		require('@tailwindcss/typography'),
-	],
+  plugins: [require("@tailwindcss/typography")],
 };
