@@ -3,27 +3,33 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import ProjectPost from "../../layouts/ProjectPost.astro";
 
 export async function getStaticPaths() {
-	const projects = await getCollection('project');
-	return projects.map((project: any) => ({
-		params: { slug: project.slug },
-		props: project,
-	}));
+  const projects = await getCollection("project");
+  const sorted = projects.sort((a, b) => {
+    if (b.data.year !== a.data.year) return b.data.year - a.data.year;
+    // within the same year, order by `index` (ascending, starting at 0);
+    // entries without an index fall to the end
+    return (a.data.index ?? Infinity) - (b.data.index ?? Infinity);
+  });
+  return sorted.map((project, index) => ({
+    params: { slug: project.slug },
+    props: {
+      project,
+      prev: sorted[index - 1] ?? null,
+      next: sorted[index + 1] ?? null,
+    },
+  }));
 }
 
-type Props = CollectionEntry<'project'>;
-const project = Astro.props;
-console.log(project);
-const { Content } = await project.render();
+interface Props {
+  project: CollectionEntry<"project">;
+  prev: CollectionEntry<"project"> | null;
+  next: CollectionEntry<"project"> | null;
+}
 
-/* Workaround for Vercel SSR conflict */
-// https://github.com/withastro/astro/issues/6012
-// const projects = await getCollection('project');
-// const { slug } = Astro.params;
-// const project = projects.find((project) => project.slug === slug);
-// if (!project) return Astro.redirect("/404");
-// const { Content } = await project.render();
+const { project, prev, next } = Astro.props;
+const { Content } = await project.render();
 ---
 
-<ProjectPost {...project.data}>
+<ProjectPost {...project.data} prev={prev} next={next}>
   <Content />
 </ProjectPost>
