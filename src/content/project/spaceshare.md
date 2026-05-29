@@ -2,7 +2,13 @@
 title: 'Space Share'
 description: 'Room-mate finding/matching Website'
 year: 2023
-background: '14AE5C'
+index: 1
+skills:
+  - ReactJS
+  - HTML
+  - Tailwind CSS
+  - Java Spring Boot
+  - MySQL
 ---
 ![SpaceShare Home Screen](/assets/projects/spaceshare_01.jpeg)
 
@@ -15,17 +21,6 @@ There's a high demand of rooms for rent in singapore, and foreign workers and st
 - came up with the app Name and drafted out possible user-roles
 - led frontend development, designed the overall look and feel of the app, built the components together with a teammate
 - built dashboard and APIs for admin module
-
----
-
-## Tech Stack
-### Frontend
-- ReactJS
-- HTML & Tailwind CSS
-### Backend
-- Java Spring Boot
-### Database
-- MySQL
 
 ---
 

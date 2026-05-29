@@ -2,7 +2,12 @@
 title: 'Notey'
 description: 'Note-taking & Daily Planner Application'
 year: 2024
-background: '14AE5C'
+skills:
+  - ReactJS
+  - React Redux
+  - Tailwind CSS
+  - Java Spring Boot
+  - MySQL
 ---
 ![notey v01 screen](/assets/projects/notey_01.png) 
 
@@ -20,17 +25,6 @@ I like to take notes, creating a knowledge base, documenting my progresses, sket
 - real-time data storage on MySQL database hosted on AWS RDS
 
 *This project is currently under development of v02 and involves three additional team members who share the same objectives.*
-
----
-
-## Tech Stack
-### Frontend
-- ReactJS, React Redux
-- Tailwind CSS
-### Backend
-- Java Spring Boot (REST API)
-### Database
-- MySQL
 
 ---
 
