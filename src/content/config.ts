@@ -8,7 +8,6 @@ const project = defineCollection({
 		description: z.string(),
     year: z.number(),
 		index: z.number().optional(),
-		background: z.string(),
 		heroImage: z.string().optional(),
 		skills: z.array(z.string()).optional(),
 		links: z
