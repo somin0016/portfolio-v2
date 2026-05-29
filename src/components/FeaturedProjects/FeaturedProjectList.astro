@@ -1,0 +1,74 @@
+---
+interface ProjectLink {
+  name: string;
+  url: string;
+}
+
+interface Project {
+  name: string;
+  description: string;
+  slug: string;
+  skills?: string[];
+  links?: ProjectLink[];
+}
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<ul class="divide-y divide-border">
+  {
+    projects.map((project) => (
+      <li>
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 py-5">
+          <div class="w-full sm:flex-1 sm:min-w-0">
+            <a
+              href={`/project/${project.slug}`}
+              class="inline-flex items-center gap-2 text-base font-medium text-fg hover:text-accent transition-colors"
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-current shrink-0" />
+              {project.name}
+            </a>
+            <p class="text-sm text-muted mt-0.5 pl-3.5">{project.description}</p>
+            {project.skills && project.skills.length > 0 && (
+              <p class="text-xs text-muted mt-2 pl-3.5 leading-relaxed">
+                {project.skills.join(" · ")}
+              </p>
+            )}
+          </div>
+          {project.links && (
+            <div class="flex items-center gap-4 text-xs text-muted self-end sm:self-auto shrink-0 mt-1">
+              {project.links.map((link) => (
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="inline-flex items-center gap-0.5 hover:text-fg transition-colors underline-offset-4 hover:underline"
+                >
+                  {link.name}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="w-2.5 h-2.5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M7 17 17 7M7 7h10v10"
+                    />
+                  </svg>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      </li>
+    ))
+  }
+</ul>

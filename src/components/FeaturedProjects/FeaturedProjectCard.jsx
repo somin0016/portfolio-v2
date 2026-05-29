@@ -1,3 +1,7 @@
+/* DEPRECATED 2026-05-29 — replaced by FeaturedProjectList.astro.
+   Not imported anywhere. Kept commented for reference. */
+
+/*
 import React from "react";
 import { cx, css } from '@emotion/css';
 import { convertHexToRGBA } from "../../util";
@@ -46,3 +50,4 @@ const FeaturedProjectCard = ({ project }) => {
 }
 
 export default FeaturedProjectCard;
+*/

@@ -1,60 +1,103 @@
 ---
 /* component imports */
 import Layout from "../layouts/Layout.astro";
-import Timeline from "../components/Timeline/Timeline.astro";
+import ExperienceList from "../components/Experience/ExperienceList.astro";
 import Section from "../components/Elements/Section/Section.astro";
-import FeaturedProjectCard from "../components/FeaturedProjects/FeaturedProjectCard";
+import FeaturedProjectList from "../components/FeaturedProjects/FeaturedProjectList.astro";
+import EmailIcon from "../components/Icons/EmailIcon.astro";
+import WhatsAppIcon from "../components/Icons/WhatsAppIcon.astro";
+import LinkedInIcon from "../components/Icons/LinkedInIcon.astro";
+import CVIcon from "../components/Icons/CVIcon.astro";
 
 /* init */
-const skills = [
+const experience = [
   {
-    category: "Languages",
-    skills: ["C#", "Java", "JavaScript", "TypeScript", "Ruby", "HTML & CSS"],
+    period: "2024 — Present",
+    role: "Research Software Development Engineer",
+    org: "Singapore-MIT Alliance for Research and Technology (SMART)",
+    description:
+      "Building software platforms and tools supporting research in human-AI collaboration.",
   },
   {
-    category: "Frameworks",
-    skills: ["ASP.NET", "Spring", "React", "NestJS", "NodeJS"],
+    period: "2023 — 2024",
+    role: "Software Engineer Intern",
+    org: "Saltmine",
+    description:
+      "Worked on full-stack development and backend architecture improvements within a microservice environment.",
   },
   {
-    category: "Databases",
-    skills: ["MSSQL", "Postgres", "Mongo", "Redis"],
+    period: "2023 — 2024",
+    role: "Graduate Diploma in Systems Analysis",
+    org: "National University of Singapore (NUS-ISS)",
   },
   {
-    category: "Tools",
-    skills: ["Git", "AWS RDS", "Docker", "Jenkins", "ArgoCD", "Figma"],
+    period: "2021 — 2022",
+    role: "Junior Software Developer",
+    org: "Seattle Consulting Myanmar",
+    description:
+      "Developed enterprise web applications and internal tools using Vue.js and Ruby on Rails.",
+  },
+  {
+    period: "2020",
+    role: "BSc (Hons) Computing",
+    org: "University of Gloucestershire",
   },
 ];
 
 const featuredProjects = [
   {
-    name: "smthant.com",
-    description: "This website ~",
-    color: "#C23A1B",
-    slug: "smthant",
+    name: "Ontology of Collective Intelligence",
+    description:
+      "Large-scale collaborative ontology platform supporting research in human-AI collaboration, featuring real-time editing, graph visualizations, and scalable knowledge structures.",
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "Firebase",
+      "Firestore",
+      "Yjs",
+      "React",
+      "D3.js",
+      "LLMs",
+    ],
+    slug: "ontology",
     links: [
-      { name: "GitHub", url: "https://github.com/somin0016/portfolio-v2" },
-      { name: "Blog", url: "https://blog.smthant.com/making-portfolio-v02/" },
+      {
+        name: "Website",
+        url: "https://ontology.mit.edu",
+      },
+      {
+        name: "GitHub",
+        url: "https://github.com/MIT-Center-for-Collective-Intelligence/1Ontology",
+      },
     ],
   },
   {
-    name: "SpaceShare",
-    description: "Room and Roommate Finding Web App",
-    color: "#14AE5C",
-    slug: "spaceshare",
+    name: "Activity Logging System",
+    description:
+      "Migration and redesign of a high-traffic activity logging system from Elasticsearch to PostgreSQL with improved scalability and maintainability.",
+    skills: [
+      "PostgreSQL",
+      "NestJS",
+      "ExpressJS",
+      "Elasticsearch",
+      "Database Design",
+      "Data Migration",
+    ],
+    slug: "activity-logging-system",
   },
   {
-    name: "Maid",
-    description: "A DiscordJS Bot",
-    color: "#0D99FF",
-    slug: "maid",
-    links: [{ name: "GitHub", url: "https://github.com/somin0016/maid_v3" }],
-  },
-  {
-    name: "Collectibles",
-    description: "Social Media Web App for Collectors",
-    color: "#FFCD29",
-    slug: "collectibles",
-    links: [{ name: "GitHub", url: "https://github.com/shinymaid/AWP" }],
+    name: "CodeMap",
+    description:
+      "Research-driven LLM-assisted tool for understanding large codebases through interactive visualizations and multiple abstraction levels.",
+    skills: [
+      "TypeScript",
+      "React",
+      "LLMs",
+      "OpenAI API",
+      "Data Visualization",
+      "Research",
+    ],
+    slug: "codebase-understanding-tool",
   },
 ];
 ---
@@ -62,36 +105,59 @@ const featuredProjects = [
 <Layout>
   <!-- INTRO STARTS -->
   <Section>
-    <div class="grid sm:grid-cols-3 gap-4 pt-8 items-center">
+    <div class="grid sm:grid-cols-3 gap-4 pt-8 sm:pt-4 items-center">
       <div class="sm:col-span-2 flex flex-col order-2 sm:order-1">
-        <div class="mb-8 text-dark">
+        <div class="mb-8 text-fg">
           <p class="">Hello,</p>
           <h1 class="text-3xl font-bold tracking-tight">
             I'm Soe Min Thant! 👋
           </h1>
         </div>
-        <p class="text-base font-normal text-dark">
-          A Software Engineer who focuses on building websites. And yes, you
-          might catch me listening to{" "}
-          <span class="italic underline decoration-dotted"> K-pop </span>{" "}
-          while coding.{" "}
-          <span class="text-gray-600 dark:text-zinc-400"
-            >(I think it helps..)</span
-          >
+        <p class="text-base font-normal text-fg">
+          Software Engineer @ <a
+            href="https://m3s.mit.edu/"
+            target="_blank"
+            rel="noreferrer"
+            class="inline-link">SMART M3S</a
+          >, building software and tools for human-AI collaboration.
         </p>
-        <div class="mt-4">
-          <p>
-            To reach out, simply email me at
-            <a
-              href={`mailto:`}
-              class="sm--link relative whitespace-nowrap ml-1 text-blue-600"
-            >
-              tsoominn@gmail.com
-            </a>
-          </p>
+        <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <a
+            href="mailto:tsoominn@gmail.com"
+            class="inline-flex items-center gap-1.5 text-fg hover:text-accent"
+          >
+            <EmailIcon />
+            Email
+          </a>
+          <a
+            href="https://wa.me/84511155"
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex items-center gap-1.5 text-fg hover:text-accent"
+          >
+            <WhatsAppIcon />
+            WhatsApp
+          </a>
+          <a
+            href="https://www.linkedin.com/in/soeminthant/"
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex items-center gap-1.5 text-fg hover:text-accent"
+          >
+            <LinkedInIcon />
+            LinkedIn
+          </a>
+          <a
+            href="/SoeMinThant.pdf"
+            download
+            class="inline-flex items-center gap-1.5 text-fg hover:text-accent"
+          >
+            <CVIcon />
+            CV
+          </a>
         </div>
       </div>
-      <div class="sm:col-span-1 order-1 sm:order-2">
+      <div class="sm:col-span-1 order-1 sm:order-2 sm:flex sm:justify-end">
         <img
           class="w-40 sm:w-52 aspect-square rounded-md object-cover"
           src="/smt_pfp.jpeg"
@@ -103,65 +169,23 @@ const featuredProjects = [
   <!-- INTRO ENDS -->
 
   <!-- ABOUT STARTS -->
-  <Section title="About Me" circle="#0D99FF">
+  <Section title="About" circle="#0D99FF">
     <div class="grid grid-cols-3 gap-2">
       <div class="col-span-3">
         <p class="mb-3">
-          I am a 23-year-old Software Engineer with a passion for crafting web
-          applications. My journey into the realm of coding began in 2016,
-          marking the start of my exploration into various programming
-          languages. Currently pursuing my studies in Software Engineering in
-          Singapore.
+          I currently work as a Research Software Development Engineer at
+          Singapore-MIT Alliance for Research and Technology (SMART), where I
+          build platforms and tools supporting research in human-AI
+          collaboration. My work involves designing and improving systems that
+          support knowledge organization, collaboration, and AI-assisted
+          workflows.
         </p>
         <p class="mb-3">
-          One of my biggest interests is examining how different projects are
-          built, especially their architecture and code structures. This helps
-          me constantly learn and grasp how complex applications are put
-          together.
+          Beyond building software, I have always been interested in
+          understanding how things work beneath the surface. I enjoy exploring
+          how systems are designed, how they evolve as they grow, and the
+          trade-offs involved in building and maintaining them.
         </p>
-        {/* <ResumeButton /> */}
-        <div class="flex items-center">
-          <span>
-            Here is my resume
-            <span class="ml-2">👉</span>
-          </span>
-          <a
-            id="resume-button"
-            class="sm--link relative whitespace-nowrap ml-2 inline-flex justify-center items-center gap-1 text-blue-600 hover:cursor-pointer"
-            href="/SoeMinThant.pdf"
-            download
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-4 h-4"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
-              ></path>
-            </svg>
-            soeminthant.pdf
-          </a>
-        </div>
-        <div class="mt-4">
-          <p>
-            Oh, and I also have a
-            <a
-              href={`https://blog.smthant.com`}
-              rel="noreferrer"
-              target="_blank"
-              class="sm--link relative whitespace-nowrap mx-1 text-blue-600"
-            >
-              personal blog
-            </a>
-            📖
-          </p>
-        </div>
       </div>
     </div>
   </Section>
@@ -169,46 +193,13 @@ const featuredProjects = [
 
   <!-- PROJECTS STARTS -->
   <Section title="Featured Projects" circle="#FFCD29">
-    <div class="grid sm:grid-cols-2 gap-2 sm:gap-4">
-      {
-        featuredProjects.map((project, index) => (
-          <FeaturedProjectCard project={project} client:load />
-        ))
-      }
-    </div>
+    <FeaturedProjectList projects={featuredProjects} />
   </Section>
   <!-- PROJECTS ENDS -->
 
-  <!-- TIMELINE STARTS -->
-  <Section title="My Career Story" circle="#F24822">
-    <Timeline />
+  <!-- EXPERIENCE STARTS -->
+  <Section title="Experience" circle="#F24822">
+    <ExperienceList entries={experience} />
   </Section>
-  <!-- TIMELINE ENDS -->
-
-  <!-- SKILLS STARTS -->
-  <Section title="My Dev Toolkit" circle="#14AE5C">
-    <div class="mb-20">
-      {
-        skills.map(({ category, skills }, index, array) => (
-          <div
-            class={`w-full min-[420px]:grid min-[420px]:grid-cols-4 gap-4 py-6 ${index === array.length - 1 ? "" : "border-b border-gray-200 dark:border-gray-600"}`}
-          >
-            <div class="col-span-1">
-              <span class="relative text-md block font-medium mb-4 min-[420px]:mb-0">
-                {category}
-              </span>
-            </div>
-            <div class="col-span-3 flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-1">
-              {skills.map((skill, index) => (
-                <div class="block pb-2 text-sm font-normal leading-relaxed text-gray-600 dark:text-zinc-300">
-                  {skill}
-                </div>
-              ))}
-            </div>
-          </div>
-        ))
-      }
-    </div>
-  </Section>
-  <!-- SKILLS ENDS -->
+  <!-- EXPERIENCE ENDS -->
 </Layout>
