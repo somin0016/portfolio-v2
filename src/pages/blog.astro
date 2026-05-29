@@ -8,14 +8,20 @@ import { WORDPRESS_BLOG_URL } from "../constants";
 ---
 
 <Layout>
-  <h1 class="text-4xl font-bold pt-8 mb-4">Blog</h1>
-  <p>I do some blogging whenever I feel bored or find interesting topics.</p>
-  <!-- Blog List -->
-  <div class="mt-16 sm:mt-20">
-    <div class="flex justify-between items-center mt-10 pb-2">
-      <h2 class="text-2xl font-bold">Recent</h2>
-      <a href={WORDPRESS_BLOG_URL} target="_blank" class="text-sm hover:underline hover:cursor-pointer">View all</a>
+  <div class="pt-8">
+    <h1 class="sm:hidden text-4xl font-bold mb-8">Blog</h1>
+    <p>I do some blogging whenever I feel bored or find interesting topics.</p>
+    <!-- Blog List -->
+    <div class="mt-16 sm:mt-20">
+      <div class="flex justify-between items-center mt-10 pb-2">
+        <h2 class="text-2xl font-bold">Recent</h2>
+        <a
+          href={WORDPRESS_BLOG_URL}
+          target="_blank"
+          class="text-sm hover:underline hover:cursor-pointer">View all</a
+        >
+      </div>
+      <BlogList client:load />
     </div>
-    <BlogList client:load />
   </div>
 </Layout>
