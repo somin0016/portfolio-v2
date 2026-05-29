@@ -1,0 +1,113 @@
+---
+/* component imports */
+component: true;
+
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Elements/Section/Section.astro";
+import AlbumList from "../components/Song/AlbumList";
+
+const games = [
+  {
+    name: "Final Fantasy XIV",
+    description: "Fav MMORPG! Been playing since 2017.",
+    images: ["ffxiv_01.jpg", "ffxiv_02.jpg", "ffxiv_03.jpg", "ffxiv_04.jpg"],
+    link: "https://eu.finalfantasyxiv.com/lodestone/character/21360010/",
+  },
+];
+---
+
+<Layout>
+  <div>
+    <!-- Dateline + intro -->
+    <div class="pt-8 mb-20">
+      <p
+        class="text-xs text-muted uppercase tracking-[0.15em] mb-3 font-medium"
+      >
+        Now · May 2026
+      </p>
+      <p class="text-lg text-fg leading-relaxed">
+        Things I’ve been enjoying and spending time on recently.
+      </p>
+    </div>
+
+    <!-- Music + Games side-by-side (2/3 + 1/3 on desktop, stacks on mobile) -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div class="sm:col-span-2">
+        <Section title="Music" circle="#F24822">
+          <AlbumList client:load />
+        </Section>
+      </div>
+      <div class="sm:col-span-1">
+        <Section title="Games" circle="#FFCD29">
+          <div class="flex flex-col gap-6">
+            {
+              games.map((game) => (
+                <div>
+                  {game.images.length >= 2 ? (
+                    <div class="swiper aspect-[4/3] w-full max-w-[240px]">
+                      <div class="swiper-wrapper">
+                        {game.images.map((image) => (
+                          <div class="swiper-slide rounded-md overflow-hidden">
+                            <img
+                              src={`/assets/games/${image}`}
+                              alt={game.name}
+                              class="w-full h-full object-cover"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <img
+                      src={`/assets/games/${game.images[0]}`}
+                      alt={game.name}
+                      class="rounded-md w-full"
+                    />
+                  )}
+                  <div class="pt-3">
+                    <h3 class="text-base font-semibold mb-1">
+                      {game.link ? (
+                        <a
+                          href={game.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          class="inline-link"
+                        >
+                          {game.name}
+                        </a>
+                      ) : (
+                        game.name
+                      )}
+                    </h3>
+                    <p class="text-sm text-muted">{game.description}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </Section>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+<script
+  is:inline
+  src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script is:inline>
+  new Swiper(".swiper", {
+    effect: "cards",
+    grabCursor: true,
+    loop: false,
+    initialSlide: 2,
+    cardsEffect: {
+      perSlideOffset: 10,
+      perSlideRotate: 3,
+      slideShadows: false,
+    },
+  });
+</script>

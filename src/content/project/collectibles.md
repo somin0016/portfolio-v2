@@ -2,7 +2,13 @@
 title: "Collectibles"
 description: "Social Media Web App for Collectors"
 year: 2020
-background: "FFFFFF"
+skills:
+  - C#
+  - ASP.NET MVC
+  - JavaScript
+  - jQuery
+  - Bootstrap
+  - MSSQL
 ---
 ![Collectibles Poster](/assets/projects/collectibles_01.png)
 
@@ -17,15 +23,6 @@ Web application designed specifically for collectors of various items such as an
 
 ### Future Improvement
 Enhancing the relevance of the feed system, ensuring that collectors are presented with content that aligns with their interests and preferences.
-
----
-
-## Tech Stack
-- C#
-- ASP.NET MVC with Razor Pages
-- JavaScript & jQuery
-- Bootstrap
-- MSSQL
 
 ---
 

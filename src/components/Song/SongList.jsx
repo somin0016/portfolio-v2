@@ -1,6 +1,9 @@
+/* DEPRECATED 2026-05-29 — replaced by AlbumList.jsx.
+   Not imported anywhere. Kept commented for reference. */
+
+/*
 import React, { useEffect, useState } from "react";
 
-/*****  NOT IN USE *****/
 const SongList = ({ apiKey }) => {
   const [songs, setSongs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +22,6 @@ const SongList = ({ apiKey }) => {
             `https://ws.audioscrobbler.com/2.0/?method=track.getInfo&artist=${encodeURIComponent(track.artist.name)}&track=${encodeURIComponent(track.name)}&api_key=3186c83b5391d58fd507558c91f03192&format=json`
           );
           const trackInfoData = await trackInfoResponse.json();
-          console.log(trackInfoData.track)
           let imageUrl;
           if (trackInfoData?.track?.album) {
             imageUrl = trackInfoData?.track?.album?.image?.find(img => img.size === 'large')?.["#text"];
@@ -77,3 +79,4 @@ const SongList = ({ apiKey }) => {
 };
 
 export default SongList;
+*/

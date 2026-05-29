@@ -2,7 +2,12 @@
 title: 'smthant.com'
 description: 'Personal Website'
 year: 2024
-background: '14AE5C'
+skills:
+  - Astro
+  - ReactJS
+  - HTML
+  - Tailwind CSS
+  - WordPress
 ---
 ## Description
 This is v02 of my portfolio website! Redesigned and revamped, this latest version serves as both a personal hub and a showcase of my projects, offering visitors a comprehensive glimpse into my journey and accomplishments.
@@ -14,14 +19,6 @@ To ensure optimal performance and discoverability, I've implemented server-side 
 *This is the website you're looking at right now!*
 
 [Here](https://portfolio-eta-one-21.vercel.app/) is the version 01!
-
----
-
-## Tech Stack
-- Astro
-- ReactJS
-- HTML & Tailwind CSS
-- WordPress as Headless CMS
 
 ---
 

@@ -1,40 +1,56 @@
 ---
 import Container from "../Container/Container.astro";
+
+const lastUpdated = new Date().toLocaleDateString("en-US", {
+  month: "long",
+  year: "numeric",
+});
+
+const stack = [
+  { name: "Astro", url: "https://astro.build/" },
+  { name: "React", url: "https://react.dev/" },
+  { name: "Tailwind CSS", url: "https://tailwindcss.com/" },
+];
 ---
 
-<footer class="mt-20 sm:mt-40 pb-4">
+<footer class="mt-20 sm:mt-40 pb-8">
   <Container>
-    <div class="my-4">
-      <div class="grid gid-cols-3 items-center">
-        <div class="col-span-1">
-          <div>
-            <p class="text-xs uppercase font-medium tracking-tight">
-              DEVELOPED BY
-            </p>
-            <p class="test-md uppercase font-semibold tracking-tight">
-              Soe Min Thant
-            </p>
-          </div>
-        </div>
-        <div class="col-span-1 col-start-3">
-          <div class="flex gap-2 justify-end">
-            <a href="https://www.astro.build/" target="_blank" class="w-9 h-9 rounded-full flex items-center justify-center border border-gray-200 dark:border-0 dark:bg-zinc-800">
-              <img loading="lazy" class="w-5 h-5 dark:hidden" src="/assets/techicons/Astro.png" alt="astro logo" />
-              <img loading="lazy" class="w-5 h-5 hidden dark:block" src="/assets/techicons/Astro_Light.png" alt="astro logo" />
-            </a>
-            <a href="https://react.dev/" class="w-9 h-9 rounded-full flex items-center justify-center border border-gray-200 dark:border-0 dark:bg-zinc-800">
-              <img loading="lazy" class="w-5 h-5" src="/assets/techicons/React.png" alt="react logo"/>
-            </a>
-            <a href="https://tailwindcss.com/" class="w-9 h-9 rounded-full flex items-center justify-center border border-gray-200 dark:border-0 dark:bg-zinc-800">
-              <img loading="lazy" class="w-5 h-5" src="/assets/techicons/Tailwind CSS.png" alt="tailwind logo" />
-            </a>
-            <a href="https://vercel.com/" class="w-9 h-9 rounded-full flex items-center justify-center border border-gray-200 dark:border-0 dark:bg-zinc-800">
-              <img loading="lazy" class="w-5 h-5 mb-2 dark:hidden" src="/assets/techicons/Vercel.png" alt="vercel logo" />
-              <img loading="lazy" class="w-5 h-5 mb-2 hidden dark:block" src="/assets/techicons/Vercel_Light.png" alt="vercel logo" />
-            </a>
-          </div>
-        </div>
-      </div>
+    <div
+      class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-xs text-muted"
+    >
+      <p class="flex flex-wrap items-center gap-x-1.5 gap-y-1">
+        <span>Built using</span>
+        {
+          stack.map((tech, i) => (
+            <>
+              <a
+                href={tech.url}
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex items-center gap-0.5 hover:text-fg transition-colors underline-offset-4 hover:underline"
+              >
+                {tech.name}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-2.5 h-2.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M7 17 17 7M7 7h10v10"
+                  />
+                </svg>
+              </a>
+              {i < stack.length - 1 && <span>,</span>}
+            </>
+          ))
+        }
+      </p>
+      <p>Last updated {lastUpdated}</p>
     </div>
   </Container>
 </footer>
