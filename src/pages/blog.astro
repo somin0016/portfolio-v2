@@ -1,7 +1,7 @@
 ---
 /* component imports */
 import Layout from "../layouts/Layout.astro";
-import BlogList from "../components/Blog/BlogList";
+// import BlogList from "../components/Blog/BlogList";
 
 /* constants */
 import { WORDPRESS_BLOG_URL } from "../constants";
@@ -21,7 +21,19 @@ import { WORDPRESS_BLOG_URL } from "../constants";
           class="text-sm hover:underline hover:cursor-pointer">View all</a
         >
       </div>
-      <BlogList client:load />
+      <!-- Blog list temporarily disabled -->
+      <!-- <BlogList client:load /> -->
+      <div
+        role="status"
+        class="mt-6 flex flex-col items-center gap-3 py-10 text-center text-fg/70"
+      >
+        <span class="text-4xl" role="img" aria-label="face with bags under eyes"
+          >🫩</span
+        >
+        <p class="max-w-sm">
+          Sorry, the blog is taking a little break right now.
+        </p>
+      </div>
     </div>
   </div>
 </Layout>

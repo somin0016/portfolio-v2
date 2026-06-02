@@ -12,7 +12,7 @@ const AlbumList = ({ }) => {
       try {
         // top tracks for the period (no usable image data on this endpoint)
         const topRes = await fetch(
-          `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=soeemthant&period=1month&limit=6&api_key=${LASTFM_API_KEY}&format=json`
+          `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=soeemthant&period=1month&limit=5&api_key=${LASTFM_API_KEY}&format=json`
         );
         const topData = await topRes.json();
         const topTracks = topData?.toptracks?.track || [];
