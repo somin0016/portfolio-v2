@@ -31,6 +31,6 @@ To ensure optimal performance and discoverability, I've implemented server-side 
 
 ## Gallery
 ### Version 01
-![smthant v01 screen](/assets/projects/smthant_01.png) 
-![smthant v01 screen](/assets/projects/smthant_02.png)
-![smthant v01 screen](/assets/projects/smthant_03.png) 
+![smthant v01 screen](../../assets/projects/smthant_01.png) 
+![smthant v01 screen](../../assets/projects/smthant_02.png)
+![smthant v01 screen](../../assets/projects/smthant_03.png) 

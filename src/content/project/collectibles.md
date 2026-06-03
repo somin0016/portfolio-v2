@@ -10,7 +10,7 @@ skills:
   - Bootstrap
   - MSSQL
 ---
-![Collectibles Poster](/assets/projects/collectibles_01.png)
+![Collectibles Poster](../../assets/projects/collectibles_01.png)
 
 ## Description
 

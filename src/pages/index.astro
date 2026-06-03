@@ -8,6 +8,8 @@ import EmailIcon from "../components/Icons/EmailIcon.astro";
 import WhatsAppIcon from "../components/Icons/WhatsAppIcon.astro";
 import LinkedInIcon from "../components/Icons/LinkedInIcon.astro";
 import CVIcon from "../components/Icons/CVIcon.astro";
+import { Image } from "astro:assets";
+import profilePic from "../assets/smt_pfp.jpeg";
 
 /* init */
 const experience = [
@@ -164,9 +166,11 @@ const featuredProjects = [
         </div>
       </div>
       <div class="sm:col-span-1 order-1 sm:order-2 sm:flex sm:justify-end">
-        <img
+        <Image
           class="w-40 sm:w-52 aspect-square rounded-md object-cover"
-          src="/smt_pfp.jpeg"
+          src={profilePic}
+          width={416}
+          height={416}
           alt="Soe Min Thant"
         />
       </div>
