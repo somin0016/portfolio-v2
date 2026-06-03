@@ -5,6 +5,19 @@ component: true;
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Elements/Section/Section.astro";
 import AlbumList from "../components/Song/AlbumList";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+const gameImages = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/games/*.{jpg,jpeg,png}",
+  { eager: true }
+);
+
+const resolveGameImage = (file: string): ImageMetadata => {
+  const match = gameImages[`../assets/games/${file}`];
+  if (!match) throw new Error(`Game image not found: ${file}`);
+  return match.default;
+};
 
 const games = [
   {
@@ -48,8 +61,10 @@ const games = [
                       <div class="swiper-wrapper">
                         {game.images.map((image) => (
                           <div class="swiper-slide rounded-md overflow-hidden">
-                            <img
-                              src={`/assets/games/${image}`}
+                            <Image
+                              src={resolveGameImage(image)}
+                              width={480}
+                              height={360}
                               alt={game.name}
                               class="w-full h-full object-cover"
                             />
@@ -58,8 +73,10 @@ const games = [
                       </div>
                     </div>
                   ) : (
-                    <img
-                      src={`/assets/games/${game.images[0]}`}
+                    <Image
+                      src={resolveGameImage(game.images[0])}
+                      width={480}
+                      height={360}
                       alt={game.name}
                       class="rounded-md w-full"
                     />

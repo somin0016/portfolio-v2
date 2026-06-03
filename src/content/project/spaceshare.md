@@ -10,7 +10,7 @@ skills:
   - Java Spring Boot
   - MySQL
 ---
-![SpaceShare Home Screen](/assets/projects/spaceshare_01.jpeg)
+![SpaceShare Home Screen](../../assets/projects/spaceshare_01.jpeg)
 
 ## Description
 
@@ -25,11 +25,11 @@ There's a high demand of rooms for rent in singapore, and foreign workers and st
 ---
 
 ## Gallery
-![SpaceShare Authenticated Screen](/assets/projects/spaceshare_02.jpeg) 
-![SpaceShare Login Screen](/assets/projects/spaceshare_03.jpeg)
-![SpaceShare Mobile Loading Screen](/assets/projects/spaceshare_04.jpeg)
-![SpaceShare Mobile Home Screen](/assets/projects/spaceshare_05.jpeg) 
-![SpaceShare Mobile Login Screen](/assets/projects/spaceshare_06.jpeg)
+![SpaceShare Authenticated Screen](../../assets/projects/spaceshare_02.jpeg) 
+![SpaceShare Login Screen](../../assets/projects/spaceshare_03.jpeg)
+![SpaceShare Mobile Loading Screen](../../assets/projects/spaceshare_04.jpeg)
+![SpaceShare Mobile Home Screen](../../assets/projects/spaceshare_05.jpeg) 
+![SpaceShare Mobile Login Screen](../../assets/projects/spaceshare_06.jpeg)
 
 ---
 

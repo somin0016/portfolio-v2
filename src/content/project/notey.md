@@ -9,7 +9,7 @@ skills:
   - Java Spring Boot
   - MySQL
 ---
-![notey v01 screen](/assets/projects/notey_01.png) 
+![notey v01 screen](../../assets/projects/notey_01.png) 
 
 ## Description
 ***Notey*** is a Note-taking & Daily Planner Application! This is an `interactive personal productivity application` and it aims to streamline your daily tasks, organize your thoughts, and boost your productivity effortlessly.
@@ -37,7 +37,7 @@ I like to take notes, creating a knowledge base, documenting my progresses, sket
 
 ## Gallery
 ### Version 01
-![notey v01 screen](/assets/projects/notey_02.png)
-![notey v01 screen](/assets/projects/notey_03.png) 
+![notey v01 screen](../../assets/projects/notey_02.png)
+![notey v01 screen](../../assets/projects/notey_03.png) 
 
 
